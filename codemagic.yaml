@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       vars:
-        JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+        JAVA_HOME: c:\Programme\Java\jdk20\bin
       node: 14.15.4
     scripts:
       # Install dependencies
