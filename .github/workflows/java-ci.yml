@@ -1,4 +1,5 @@
-name: Java CI
+mkdir -p .github/workflows
+echo "name: Java CI
 
 on:
   push:
@@ -11,7 +12,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,24 +21,6 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt'  # AdoptOpenJDK is one of the distributions
-        java-version: '11'
+        distribution: 'adopt'
+        java-version
 
-    - name: Build with Gradle
-      run: ./gradlew build
-
-    - name: Run tests
-      run: ./gradlew test
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      run: |
-        git config --global user.email "wilfried.ifland@gmail.com"
-        git config --global user.name "iwilfried"
-        git clone https://github.com/${{ github.repository }} gh-pages
-        cd gh-pages
-        git checkout gh-pages || git checkout --orphan gh-pages
-        cp -R ../build/* .
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-        git push origin gh-pages --force
