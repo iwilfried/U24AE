@@ -1,0 +1,54 @@
+workflows:
+  java-build:
+    name: Build and Test Java Project
+    max_build_duration: 60
+    environment:
+      vars:
+        JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      node: 14.15.4
+    scripts:
+      # Install dependencies
+      - name: Install dependencies
+        script: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
+
+      # Check Java version
+      - name: Check Java version
+        script: java -version
+
+      # Set up gradle wrapper (if using Gradle)
+      - name: Set up Gradle wrapper
+        script: ./gradlew wrapper
+
+      # Build the project
+      - name: Build the project
+        script: ./gradlew build
+
+      # Run tests
+      - name: Run tests
+        script: ./gradlew test
+
+      # Deploy step (this can be customized according to your deployment strategy)
+      # Here, we're assuming you're using GitHub Pages for deployment
+      - name: Deploy to GitHub Pages
+        script: |
+          # Configure git
+          git config --global user.email "wilfried.ifland@gmail.com"
+          git config --global user.name "iwilfried"
+
+          # Clone the repository and switch to gh-pages branch
+          git clone https://github.com/iwilfried/U24AE.git
+          cd U24AE
+          git checkout gh-pages || git checkout --orphan gh-pages
+
+          # Copy build output to gh-pages branch
+          cp -R build/* .
+
+          # Commit and push changes
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push origin gh-pages --force
+
+    artifacts:
+      - build/**/*
