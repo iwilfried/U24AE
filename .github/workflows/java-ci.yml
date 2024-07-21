@@ -33,8 +33,8 @@ jobs:
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+        git config --global user.email "wilfried.ifland@gmail.com"
+        git config --global user.name "iwilfried"
         git clone https://github.com/${{ github.repository }} gh-pages
         cd gh-pages
         git checkout gh-pages || git checkout --orphan gh-pages
