@@ -1,5 +1,4 @@
-mkdir -p .github/workflows
-echo "name: Java CI
+name: Java CI
 
 on:
   push:
@@ -22,5 +21,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version
+        java-version: '11'
 
+    - name: Verify Java installation
+      run: java -version
