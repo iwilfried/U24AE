@@ -23,5 +23,24 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Verify Java installation
-      run: java -version
+    - name: Grant execute permission for Gradle wrapper
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Run tests
+      run: ./gradlew test
+
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git clone https://github.com/${{ github.repository }} gh-pages
+        cd gh-pages
+        git checkout gh-pages || git checkout --orphan gh-pages
+        cp -R ../build/* .
+        git add .
+        git commit -m "Deploy to GitHub Pages"
+        git push origin gh-pages --force
