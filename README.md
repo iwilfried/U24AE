@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
+
 Diese README-Datei beschreibt detailliert die Architektur und Komponenten der Flashcards-App ohne den eigentlichen Quellcode, bietet aber alle notwendigen Informationen, um das Projekt zu verstehen und auszuführen.
 
->>>>>>> 9077b44 (Add Codemagic CI/CD config , Gradle, README)
 # Flashcards App
 
 Dies ist eine Java-Anwendung, die eine Flashcards-App implementiert. Die Anwendung zeigt eine Willkommensseite mit einem Hintergrundbild und einem Button zum Weiterblättern. Sie lädt Fragen aus einer JSON-Datei, die auf der zweiten Seite angezeigt werden.
@@ -11,11 +9,9 @@ Dies ist eine Java-Anwendung, die eine Flashcards-App implementiert. Die Anwendu
 
 Das Projekt ist als Paket entwickelt und besteht aus folgenden Dateien und Ressourcen:
 
-<<<<<<< HEAD
 ### Paketstruktur
-=======
+
 ### Paket- und Verzeichnisstruktur
->>>>>>> 9077b44 (Add Codemagic CI/CD config , Gradle, README)
 
 ```
 project/
@@ -38,10 +34,9 @@ project/
 └── json-20240303.jar
 ```
 
-<<<<<<< HEAD
 
 ### Beschreibung der Pakete und Dateien
-=======
+
 ### Zusammenfassung
  "Software- Architektur" ist die Struktur und das Design der Anwendung, einschließlich der Art und Weise, wie die verschiedenen Komponenten und Module organisiert und miteinander verbunden sind.
 Die Flashcards-App ist deshalb durch eine klare Trennung von Zuständigkeiten, Wiederverwendbarkeit und Modularität gekennzeichnet. Durch die Verwendung von Paketen, abstrakten Klassen und externen Ressourcen wird die Anwendung strukturiert und wartbar gestaltet. Die Trennung von Geschäftslogik und Darstellung ermöglicht eine saubere und flexible Entwicklung der Anwendung.
